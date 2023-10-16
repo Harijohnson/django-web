@@ -1,0 +1,31 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% extends 'store/base.html' %}
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1,minimum-scale=1">
+    <title>Ecomers</title>
+</head>
+<body>
+    {% block content %}
+    <div class="row">
+        {% for product in products %}
+        <div class="col-lg-4">
+            <img class="thumbnail" src="{{product.imageURL}}" alt="item">
+            <div class="box-element product">
+                <h5><strong> {{product.name}}</strong></h5>
+                <hr>
+                <button class="btn btn-outline-secondary add-btn">Add to Cart</button>
+                <a href="#" class="btn btn-success">View</a>
+                <h4 style="float:right;"> ${{product.price|floatformat:2}}</h4>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    {% endblock content  %}
+</body>
+</html>
