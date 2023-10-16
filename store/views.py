@@ -7,6 +7,7 @@ from .models import *
 def store(request):
     products=Product.objects.all()
     context={'products': products}
+    #add some git chnages
     return render(request,'store/store.html',context)
 def cart(request):
     context={}
