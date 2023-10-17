@@ -16,7 +16,7 @@ for (var i = 0; i < updateBtns.length; i++){
         }
     })
 }
-
+// console.log(user)
 
 function updateUserOrder(productId,action){
     var url='/update_item/';
