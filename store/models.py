@@ -48,7 +48,7 @@ class Order(models.Model):
          orderitems=self.orderitem_set.all()
          for i in orderitems:
             if i.product.digital == False:
-                shippig=True
+                shipping=True
          return shipping
      
      @property  # total amt of order total amt in top of cart page
