@@ -6,6 +6,8 @@ e comers website in django
 ### Django 
 Django pip install
 
+django fream work : 
+
 pip install Django==4.2.6
 
 
@@ -20,4 +22,35 @@ DB
 MySQL 
 
 
-run on localhost 
+run on localhost
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
