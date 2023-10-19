@@ -9,7 +9,7 @@ Django pip install
 pip install Django==4.2.6
 
 
-## Pillow
+## Pillow1
 
 pip install pillow
 
@@ -18,3 +18,6 @@ DB
 
 
 MySQL 
+
+
+run on localhost 
