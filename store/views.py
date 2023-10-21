@@ -77,7 +77,9 @@ def updateItem(request):
     return JsonResponse('item was added successfully',safe=False)
 
 
-
+def processOrder(request):
+    print('Data',request.body)
+    return JsonResponse('payment completed',safe=False)
 
 
 

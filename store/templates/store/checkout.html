@@ -81,17 +81,17 @@
                 {% endfor %}
 				<h5>Items:   {{order.get_cart_items}}</h5>
 				<h5>Total:   ${{order.get_cart_total|floatformat:2}}</h5>
-
             </div>
-
         </div>          
-
-
     </div>
     <div id="shipping" content="hidden">{{order.shipping}}</div>
-    <script type="text/javascript" >   
+    
+    
+    
+    
+    <script type="text/javascript" > 
         var shipping='{{order.shipping}}';
-        var total = '{{order.het_cart_total|floatformate:2}}'
+        var total = '{{order.het_cart_total|floatformat:2}}'
         // console.log(shipping);
         if(shipping == 'False'){
             document.getElementById('shipping-info').innerHTML ="";
@@ -128,7 +128,7 @@
 
         function submitFormData(){
             console.log('payment button is clicked  ')
-            var iserFormData={
+            var userFormData={
                 'name':null,
                 'email':null,
                 'total':total,
@@ -152,10 +152,27 @@
                 userFormData.name=form.name.value
                 userFormData.email=form.email.value
             }
-
-
         }
+
+    var url ='/process_order/';
+    fetch(url, {
+        method:'POST',
+        headers:{
+            'Content-Type':'application/json',
+                'X-CSRFToken':csrftoken
+        },
+        body:JSON.stringify({'form':userFormData,'shipping':shippingInfo})
+
+        })
+        .then((response) => response.json())           
+        .then((data) => {
+            console.log("Success",data);
+            alert("Transaction compleated successfully");
+            window.location.href="{% url 'store' %}";
+            
+        })
+
      </script> 
-    {% endblock content %}
+{% endblock content %}
 </body>
 </html>
