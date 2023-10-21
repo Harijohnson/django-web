@@ -26,7 +26,7 @@ for ( i = 0; i < updateBtns.length; i++){
 function addCokieItem(productId, action){
     console.log('not loged in user')
 
-    if (action='add' )
+    if (action=='add' )
     {
         if (cart[productId] === undefined)
         {
@@ -39,17 +39,20 @@ function addCokieItem(productId, action){
         }
     }
 
-    if (action='remove' ){
+    if (action =='remove' )
+    {
         cart[productId]['quantity'] -= 1
 
-        if (cart[productId]['quantity'] <= 0){
+        if (cart[productId]['quantity'] <= 0)
+        {
             console.log('remove item')
             delete cart[productId]
         }
     }
-    console.log(cart)
+   // console.log('Cart',cart)
     document.cookie = 'cart='+ JSON.stringify(cart) + ";domain;path=/"
-   // location.reload()
+   location.reload()
+   console.log('Cart',cart)
 
 }
 
