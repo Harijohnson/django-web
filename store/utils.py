@@ -60,7 +60,8 @@ def guestOrder(request,data):
 
     name= data['form']['name']
     email= data['form']['email']
-
+    print('name is here :', name)
+    print('email is here :', email)
     cookieData= cookieData(request)
     items=cookieData['items']
 
