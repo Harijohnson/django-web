@@ -1,7 +1,13 @@
 body{
 	background-color: hsl(0, 0%, 98%);
 }
+.row{
+	margin-top:.5%;
+    margin-left: .5%;
+	margin-right: .5%;
 
+
+}
 h1,h2,h3,h4,h5,h6{
 	color:hsl(0, 0%, 30%);
 }
@@ -47,6 +53,7 @@ h1,h2,h3,h4,h5,h6{
 	font-size: 14px;
 }
 .col-lg-4, .col-lg-6, .col-lg-8, .col-lg-12{
+
 	margin-top: 10px;
 }
 

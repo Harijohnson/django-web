@@ -88,7 +88,7 @@ def processOrder(request):
         total= float(data['form']['total'])
         order.transation_id = transation_id
 
-
+    
         if total == order.get_cart_total:
             order.compleate = True
         order.save()
