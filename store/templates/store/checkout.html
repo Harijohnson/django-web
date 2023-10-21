@@ -146,22 +146,22 @@
                 shippingInfo.city=form.city.value
                 shippingInfo.state=form.state.value
                 shippingInfo.zipcode=form.zipcode.value
-                shippingInfo.country=form.countrry.value
+                shippingInfo.country=form.country.value
             }
             if (user =='AnonymousUser') {
                 userFormData.name=form.name.value
                 userFormData.email=form.email.value
             }
-        }
-
+        
+        var user='{{request.user}}';
     var url ='/process_order/';
     fetch(url, {
         method:'POST',
         headers:{
             'Content-Type':'application/json',
-                'X-CSRFToken':csrftoken
+                'X-CSRFToken': csrftoken
         },
-        body:JSON.stringify({'form':userFormData,'shipping':shippingInfo})
+        body:JSON.stringify({'form':userFormData,'shipping':shippingInfo}),
 
         })
         .then((response) => response.json())           
@@ -171,7 +171,7 @@
             window.location.href="{% url 'store' %}";
             
         })
-
+    }
      </script> 
 {% endblock content %}
 </body>
