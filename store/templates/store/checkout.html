@@ -91,7 +91,7 @@
     
     <script type="text/javascript" > 
         var shipping='{{order.shipping}}';
-        var total = '{{order.het_cart_total|floatformat:2}}'
+        var total = '{{order.get_cart_total}}'
         // console.log(shipping);
         if(shipping == 'False'){
             document.getElementById('shipping-info').innerHTML ="";
@@ -159,18 +159,19 @@
         method:'POST',
         headers:{
             'Content-Type':'application/json',
-                'X-CSRFToken': csrftoken
+            'X-CSRFToken': csrftoken,
         },
         body:JSON.stringify({'form':userFormData,'shipping':shippingInfo}),
 
         })
-        .then((response) => response.json())           
-        .then((data) => {
-            console.log("Success",data);
-            alert("Transaction compleated successfully");
-            window.location.href="{% url 'store' %}";
-            
-        })
+    .then((response) => response.json())           
+    .then((data) => {
+        console.log("Success :",data);
+        alert("Transaction compleated successfully");
+        window.location.href="{% url 'store' %}";
+        
+    })
+    
     }
      </script> 
 {% endblock content %}
