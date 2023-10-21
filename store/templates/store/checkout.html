@@ -169,10 +169,12 @@
     .then((data) => {
         console.log("Success :",data);
         alert("Transaction compleated successfully");
+        cart={}
+        document.cookie = 'cart='+ JSON.stringify(cart) + ";domain;path=/"
         window.location.href="{% url 'store' %}";
         
     })
-    
+                                    
     }
      </script> 
 {% endblock content %}
