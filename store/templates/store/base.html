@@ -84,11 +84,19 @@
 
 
       }
+
       var cart= JSON.parse(getCookie('cart'))
 
 
 
-      // console.log(csrftoken);
+     if (cart==undefined){
+      cart={}
+      console.log('cart is created')
+      document.cookie = 'cart='+ JSON.stringify(cart) + ";domain;path=/"
+     }
+     console.log(cart);
+
+
       // alert(csrftoken)
 </script>
 
