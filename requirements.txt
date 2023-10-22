@@ -5,3 +5,4 @@ gunicorn
 sqlparse
 psycopg2
 pillow
+mysqlclient
