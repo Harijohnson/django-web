@@ -85,17 +85,26 @@ WSGI_APPLICATION = 'ecomers.wsgi.application'
 #         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'ecomers',
+#         'USER': 'root',
+#         'PASSWORD': 'root',
+#         'HOST': '127.0.0.1',
+#         'PORT': '3306',
+#     }
+# }
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'ecomers',
-        'USER': 'root',
-        'PASSWORD': 'root',
-        'HOST': '127.0.0.1',
-        'PORT': '3306',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'railway',
+        'USER': 'postgres',
+        'PASSWORD': 'WPKYRlH0L6ETTk5rI7m2',
+        'HOST': 'containers-us-west-153.railway.app',
+        'PORT': '5670',
     }
 }
-
 # DATABASES = {
 #     'default' : dj_database_url.config(
 #         default='postgres://ecomers_user:slVcvVz09897kzjNKMeBsiVTqflMUPDO@dpg-ckqhbru2eoec73a9o440-a.singapore-postgres.render.com/ecomers',
