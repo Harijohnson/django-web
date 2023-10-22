@@ -53,8 +53,6 @@
                     <input type="submit" id='form-button' value="Continue" class="btn btn-success btn-block">
 
                 </form>
-
-
             </div>
             <br>
 
@@ -86,13 +84,14 @@
             </div>
         </div>          
     </div>
-    <div id="shipping" content="hidden">{{order.shipping}}</div>
+    <div id="shipping" class="hidden">{{order.shipping}}</div>
     
     
     
     
     <script type="text/javascript" > 
         var user='{{request.user}}';
+        // var email='{{request.email}}';
         var shipping='{{order.shipping}}';
         var total = '{{order.get_cart_total}}'
         // console.log(shipping);
@@ -110,12 +109,10 @@
         // console.log('shipping :',shipping)
         if (shipping == 'False' &&  user !== 'AnonymousUser'){
             // hide the entire form if the user is loged in and shipping is false
-            document.getElementById('form-wrapper').classList.add();
+            document.getElementById('form-wrapper').classList.add('hidden');
             // show payment if logged in user w ants to buy an item that does not requires shipping
             document.getElementById('payment-info').classList.remove('hidden');
             }
-        
-
 
         var form = document.getElementById('form')
 
@@ -130,6 +127,12 @@
         })
 
         function submitFormData(){
+            if (user =='AnonymousUser') {
+                userFormData.name=form.name.value
+                // alert('here is user details ',userFormData.name)
+                userFormData.email=form.email.value
+                // alert('here is email details' ,userFormData.email)
+            }
             console.log('payment button is clicked  ')
             var userFormData={
                 'name':null,
@@ -144,17 +147,14 @@
                 'country':null,
             }
 
-            if (shipping!='False'){
+            if (shipping != 'False'){
                 shippingInfo.address=form.address.value
                 shippingInfo.city=form.city.value
                 shippingInfo.state=form.state.value
                 shippingInfo.zipcode=form.zipcode.value
                 shippingInfo.country=form.country.value
             }
-            if (user =='AnonymousUser') {
-                userFormData.name=form.name.value
-                userFormData.email=form.email.value
-            }
+            
         
         var user='{{request.user}}';
     var url ='/process_order/';

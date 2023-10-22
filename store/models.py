@@ -13,8 +13,10 @@ class Product(models.Model):
     digital=models.BooleanField(default=False, null=True , blank=True)
     #image
     image = models.ImageField(null=True, blank=True)
+
     def __str__(self):
         return self.name
+    
     @property
     def imageURL(self):
         try:
@@ -27,6 +29,7 @@ class Order(models.Model):
      date_order=models.DateTimeField(auto_now_add=True)
      compleate=models.BooleanField(default=False,null=True, blank=False)
      transaction_id=models.CharField(max_length=200,null=True)
+
      def __str__(self):
         return str(self.id)
      @property

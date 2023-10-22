@@ -43,29 +43,27 @@ def cookieCart(request):
 
 def cartData(request):
     if request.user.is_authenticated:
-        customer=request.user.customer
+        customer=request.user.customer  
         order,created=Order.objects.get_or_create(customer=customer, compleate=False)
         items=order.orderitem_set.all()
         cartItems = order.get_cart_items
     else:
-        cookieData=cookieCart(request)
+        cookieData=cookieCart(request)        # usualy bug in this line
         cartItems= cookieData['cartItems']
         order =cookieData['order']
         items = cookieData['items']
     return {'cartItems': cartItems,'order': order,'items': items}
 
 def guestOrder(request,data):
+
     print('user is not loged in ')
     print('COOKIES:', request.COOKIES)
-
-    name= data['form']['name']
+    name= data['form']['name']     
     email= data['form']['email']
     print('name is here :', name)
     print('email is here :', email)
-    cookieData= cookieData(request)
+    cookieData= cookieData(request)    # bug in here
     items=cookieData['items']
-
-
     customer,created  =Customer.objects.get_or_create(email=email)
     customer.name=name
     customer.save()
