@@ -1,5 +1,4 @@
 asgiref 
-dj-django-urls
 django
 django-database-url
 gunicorn
