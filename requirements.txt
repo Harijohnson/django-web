@@ -1,0 +1,8 @@
+asgiref 
+dj-django-urls
+django
+django-database-url
+gunicorn
+sqlparse
+psycopg2
+pillow
