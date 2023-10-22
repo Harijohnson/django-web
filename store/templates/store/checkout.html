@@ -99,7 +99,7 @@
             document.getElementById('shipping-info').innerHTML ="";
         }
         //  var user=user  
-        console.log('user is :', user)
+        // console.log('user is :', user)
 
         if (user !== 'AnonymousUser'){
             document.getElementById('user-info').innerHTML ="";
@@ -122,17 +122,12 @@
             document.getElementById('form-button').classList.add('hidden')
             document.getElementById('payment-info').classList.remove('hidden')
         })
-        document.getElementById('make-payment').addEventListener('click',function(e) {
-            submitFormData()
-        })
+        // document.getElementById('make-payment').addEventListener('click',function(e) {
+        //     submitFormData()
+        // })
 
         function submitFormData(){
-            if (user =='AnonymousUser') {
-                userFormData.name=form.name.value
-                // alert('here is user details ',userFormData.name)
-                userFormData.email=form.email.value
-                // alert('here is email details' ,userFormData.email)
-            }
+            
             console.log('payment button is clicked  ')
             var userFormData={
                 'name':null,
@@ -155,7 +150,12 @@
                 shippingInfo.country=form.country.value
             }
             
-        
+            if (user =='AnonymousUser') {
+                userFormData.name=form.name.value
+                // alert('here is user details ',userFormData.name)
+                userFormData.email=form.email.value
+                // alert('here is email details' ,userFormData.email)
+            }
         var user='{{request.user}}';
     var url ='/process_order/';
     fetch(url, {
