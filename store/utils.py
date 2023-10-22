@@ -62,7 +62,7 @@ def guestOrder(request,data):
     email= data['form']['email']
     print('name is here :', name)
     print('email is here :', email)
-    cookieData= cookieData(request)    # bug in here
+    cookieData= cookieCart(request)    # bug in here
     items=cookieData['items']
     customer,created  =Customer.objects.get_or_create(email=email)
     customer.name=name

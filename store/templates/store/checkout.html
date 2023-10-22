@@ -16,14 +16,14 @@
         <div class="col-lg-6">
             <div class="box-element" id="form-wrapper">
                 <form action="" id="form">
-                    {% csrf_token %}
+                    
                         <div id="user-info">
-                        
+                            {% csrf_token %}
                             <div class="form-field">
-                                <input required class="form-control" type="text" name="name" placeholder="Name..">
+                                <input required class="form-control"  id='username' type="text" name="name" placeholder="Name..">
                             </div>
                             <div class="form-field">
-                                <input required class="form-control" type="email" name="email" placeholder="Email..">
+                                <input required class="form-control"  id='useremail' type="email" name="email" placeholder="Email..">
                             </div>
                         </div>
 
@@ -91,22 +91,17 @@
     
     <script type="text/javascript" > 
         var user='{{request.user}}';
-        // var email='{{request.email}}';
         var shipping='{{order.shipping}}';
         var total = '{{order.get_cart_total}}'
-        // console.log(shipping);
         if(shipping == 'False'){
             document.getElementById('shipping-info').innerHTML ="";
         }
-        //  var user=user  
-        // console.log('user is :', user)
+
 
         if (user !== 'AnonymousUser'){
             document.getElementById('user-info').innerHTML ="";
         }
 
-        // console.log('user is :', user)
-        // console.log('shipping :',shipping)
         if (shipping == 'False' &&  user !== 'AnonymousUser'){
             // hide the entire form if the user is loged in and shipping is false
             document.getElementById('form-wrapper').classList.add('hidden');
@@ -122,18 +117,21 @@
             document.getElementById('form-button').classList.add('hidden')
             document.getElementById('payment-info').classList.remove('hidden')
         })
-        // document.getElementById('make-payment').addEventListener('click',function(e) {
-        //     submitFormData()
-        // })
 
+        document.getElementById('make-payment').addEventListener('click',function(e) {
+            submitFormData()
+        })
         function submitFormData(){
-            
+            var user='{{request.user}}';
+            var email='{{request.email}}';
             console.log('payment button is clicked  ')
             var userFormData={
-                'name':null,
-                'email':null,
+                'name':user,
+                'email':email,
                 'total':total,
             }
+            console.log(userFormData)
+            alert(userFormData.name , userFormData.email,   userFormData.total)
             var shippingInfo={
                 'address':null,
                 'city':null,
@@ -141,6 +139,8 @@
                 'zipcode':null,
                 'country':null,
             }
+
+            alert(shippingInfo)
 
             if (shipping != 'False'){
                 shippingInfo.address=form.address.value
@@ -156,8 +156,14 @@
                 userFormData.email=form.email.value
                 // alert('here is email details' ,userFormData.email)
             }
-        var user='{{request.user}}';
+
+
+    var user='{{request.user}}';
+
+
     var url ='/process_order/';
+
+
     fetch(url, {
         method:'POST',
         headers:{

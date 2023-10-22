@@ -37,12 +37,6 @@ def updateItem(request):
     data=json.loads(request.body)
     productId=data['productId']
     action=data['action']
-    # print('productId:'+str(productId))
-    # print('action:'+str(action))
-    # print(productId,action)
-
-
-
     customer=request.user.customer
     product=Product.objects.get(id=productId)
     order,created=Order.objects.get_or_create(customer=customer, compleate=False)
@@ -64,23 +58,18 @@ def updateItem(request):
 
 def processOrder(request):
     transation_id = datetime.datetime.now().timestamp()
-    print('transatction_id is here :',transation_id)
+    # print('transatction_id is here :',transation_id)
     data = json.loads(request.body)
-    print("here is transaction detail",transation_id, data)
+    # print("here is transaction detail",transation_id, data)
     if request.user.is_authenticated:
         customer = request.user.customer
         order,created=Order.objects.get_or_create(customer=customer, compleate=False)
-    else:
-        customer,order = guestOrder(request,data)
-
-    total= float(data['form']['total'])
-    order.transation_id = transation_id
-
-    
-    if total == order.get_cart_total:
-        order.compleate = True
-    order.save()
-    if order.shipping == True:
+        total= float(data['form']['total'])
+        order.transation_id = transation_id
+        if total == order.get_cart_total:
+            order.compleate = True
+        order.save()
+        if order.shipping == True:
             ShippingAddress.objects.create(
                 customer= customer,
                 order=order,
@@ -90,6 +79,10 @@ def processOrder(request):
                 zipcode=data['shipping']['zipcode'],
                 country=data['shipping']['country'],
             )
+
+    else:
+        customer,order = guestOrder(request,data)
+        
     return JsonResponse('payment completed',safe=False)
 
 
