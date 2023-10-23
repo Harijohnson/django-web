@@ -97,25 +97,25 @@ WSGI_APPLICATION = 'ecomers.wsgi.application'
 #         'PORT': '3306',
 #     }
 # }
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'railway',
-#         'USER': 'postgres',
-#         'PASSWORD': 'WPKYRlH0L6ETTk5rI7m2',
-#         'HOST': 'containers-us-west-153.railway.app',
-#         'PORT': '5670',
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'railway',
+        'USER': 'postgres',
+        'PASSWORD': 'WPKYRlH0L6ETTk5rI7m2',
+        'HOST': 'containers-us-west-153.railway.app',
+        'PORT': '5670',
+    }
+}
 # postgres://ecomers_user:slVcvVz09897kzjNKMeBsiVTqflMUPDO@dpg-ckqhbru2eoec73a9o440-a.singapore-postgres.render.com/ecomers
 
 
 # database_url =os.environ.get('DATABASE_URL')
 
-DATABASES={
-    'default':dj_database_url.parse('postgres://ecomers_user:slVcvVz09897kzjNKMeBsiVTqflMUPDO@dpg-ckqhbru2eoec73a9o440-a.singapore-postgres.render.com/ecomers'),
+# DATABASES={
+#     'default':dj_database_url.parse('postgres://ecomers_user:slVcvVz09897kzjNKMeBsiVTqflMUPDO@dpg-ckqhbru2eoec73a9o440-a.singapore-postgres.render.com/ecomers'),
 
-} 
+# } 
 
 # DATABASES = {
 #     'default' : dj_database_url.config(
