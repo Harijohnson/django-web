@@ -87,16 +87,16 @@ WSGI_APPLICATION = 'ecomers.wsgi.application'
 #         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'ecomers',
-        'USER': 'root',
-        'PASSWORD': 'root',
-        'HOST': '127.0.0.1',
-        'PORT': '3306',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'ecomers',
+#         'USER': 'root',
+#         'PASSWORD': 'root',
+#         'HOST': '127.0.0.1',
+#         'PORT': '3306',
+#     }
+# }
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.postgresql',
@@ -112,10 +112,10 @@ DATABASES = {
 
 # database_url =os.environ.get('DATABASE_URL')
 
-# DATABASES={
-#     'default':dj_database_url.parse('postgres://ecomers_user:slVcvVz09897kzjNKMeBsiVTqflMUPDO@dpg-ckqhbru2eoec73a9o440-a.singapore-postgres.render.com/ecomers'),
+DATABASES={
+    'default':dj_database_url.parse('postgres://ecomers_user:slVcvVz09897kzjNKMeBsiVTqflMUPDO@dpg-ckqhbru2eoec73a9o440-a.singapore-postgres.render.com/ecomers'),
 
-# } 
+} 
 
 # DATABASES = {
 #     'default' : dj_database_url.config(
