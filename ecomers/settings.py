@@ -110,10 +110,10 @@ WSGI_APPLICATION = 'ecomers.wsgi.application'
 # postgres://ecomers_user:slVcvVz09897kzjNKMeBsiVTqflMUPDO@dpg-ckqhbru2eoec73a9o440-a.singapore-postgres.render.com/ecomers
 
 
-database_url =os.environ.get('DATABASE_URL')
+# database_url =os.environ.get('DATABASE_URL')
 
 DATABASES={
-    'default':dj_database_url.parse('database_url'),
+    'default':dj_database_url.parse('postgres://ecomers_user:slVcvVz09897kzjNKMeBsiVTqflMUPDO@dpg-ckqhbru2eoec73a9o440-a.singapore-postgres.render.com/ecomers'),
 
 } 
 
