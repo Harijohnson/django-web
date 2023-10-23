@@ -25,12 +25,14 @@ STATIC_DIR = os.path.join(BASE_DIR2,'static')
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-$*^v0kl2n^)e3jzkrua&)q1z%fs0q*w@rqr0de(em16hgvr$x%'
+
+
+SECRET_KEY =os.environ.get('SECRET_KEY') # 'django-insecure-$*^v0kl2n^)e3jzkrua&)q1z%fs0q*w@rqr0de(em16hgvr$x%'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = os.environ.get('DEBUG', False).lower() == 'true'
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS').split(" ")
 
 
 # Application definition
@@ -95,16 +97,26 @@ WSGI_APPLICATION = 'ecomers.wsgi.application'
 #         'PORT': '3306',
 #     }
 # }
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'railway',
-        'USER': 'postgres',
-        'PASSWORD': 'WPKYRlH0L6ETTk5rI7m2',
-        'HOST': 'containers-us-west-153.railway.app',
-        'PORT': '5670',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'railway',
+#         'USER': 'postgres',
+#         'PASSWORD': 'WPKYRlH0L6ETTk5rI7m2',
+#         'HOST': 'containers-us-west-153.railway.app',
+#         'PORT': '5670',
+#     }
+# }
+# postgres://ecomers_user:slVcvVz09897kzjNKMeBsiVTqflMUPDO@dpg-ckqhbru2eoec73a9o440-a.singapore-postgres.render.com/ecomers
+
+
+database_url =os.environ.get('DATABASE_URL')
+
+DATABASES={
+    'default':dj_database_url.parse('database_url'),
+
+} 
+
 # DATABASES = {
 #     'default' : dj_database_url.config(
 #         default='postgres://ecomers_user:slVcvVz09897kzjNKMeBsiVTqflMUPDO@dpg-ckqhbru2eoec73a9o440-a.singapore-postgres.render.com/ecomers',
