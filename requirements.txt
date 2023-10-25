@@ -1,27 +1,19 @@
 
 asgiref
-
 beautifulsoup4
-
 DateTime
 debugpy
-
 dj-database-url
 Django
 djongo
 dnspython
 docutils
 executing
-
-
-
-
+gunicorn
 mysql-connector
 mysql-connector-python
 mysqlclient
 nbclassic
-
 Pillow
-
 psycopg2
 
