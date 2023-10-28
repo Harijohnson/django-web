@@ -3,11 +3,6 @@
 
 This is a test ecomers application using django web freamework
 
-[![GitHub issues](https://img.shields.io/github/issues/Harijohnson/django-web)](https://github.com/Harijohnson/django-web/issues)
-[![GitHub forks](https://img.shields.io/github/forks/Harijohnson/django-web)](https://github.com/Harijohnson/django-web/forks)
-
-[![Open Source Love svg1](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com) 
-
 ## Tech Stack
 - **Frontend:** HTML/CSS/javascript
 - **Backend:** Django/PostgreSQL
